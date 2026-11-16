@@ -1,0 +1,419 @@
+/**
+ * >ad. — per aspera ad astra
+ * github.com/andrezon04
+ *
+ * Camada da identidade "ad." sobre o design original (styles.css):
+ *   1. o logo >ad.
+ *   2. o botão que alterna o tema
+ *   3. o modo noturno, com a paleta Tokyo Night
+ *
+ * styles.css não foi alterado. Tudo aqui vem depois e só sobrescreve
+ * o que precisa, então o modo claro continua igual ao original.
+ */
+
+/* ------------------------------------------------------------------ */
+/* 1. Logo                                                             */
+/* ------------------------------------------------------------------ */
+
+:root {
+  /* Versão "fundo claro" definida no quadro Marca final. */
+  --logo-ink: #343b58;
+  --logo-ship: #2959aa; /* ">" a nave */
+  --logo-star: #8c6c3e; /* "." a estrela */
+}
+
+.logo {
+  font-family: "Space Mono", ui-monospace, Menlo, Consolas, monospace;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.06em;
+  white-space: nowrap;
+  color: var(--logo-ink);
+}
+
+.logo-ship {
+  color: var(--logo-ship);
+}
+
+.logo-ad {
+  margin-left: 0.1em; /* vão entre a nave e as letras */
+}
+
+.logo-star {
+  color: var(--logo-star);
+}
+
+/* O tamanho mínimo da marca é 24px. */
+.site-footer .logo {
+  font-size: 24px;
+}
+
+/* Logo como marca d'água no cartão azul do hero. */
+.art-monogram.logo {
+  font-family: "Space Mono", ui-monospace, Menlo, Consolas, monospace;
+  font-size: 62px;
+  letter-spacing: -0.06em;
+  line-height: 0.9;
+  color: #8e9aff;
+}
+
+.art-monogram .logo-ship {
+  color: #8e9aff;
+}
+
+.art-monogram .logo-star {
+  color: #e0af68;
+}
+
+/* ------------------------------------------------------------------ */
+/* 2. Botão de tema                                                    */
+/* ------------------------------------------------------------------ */
+
+.theme-toggle {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border: 1px solid #bdc5d7;
+  border-radius: 7px;
+  background: transparent;
+}
+
+.theme-toggle:hover {
+  background: var(--soft);
+  color: var(--blue);
+}
+
+/* No claro aparece a lua (ir para o noturno); no noturno, o sol. */
+.theme-toggle .icon-sun {
+  display: none;
+}
+
+[data-theme="dark"] .theme-toggle .icon-sun {
+  display: block;
+}
+
+[data-theme="dark"] .theme-toggle .icon-moon {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .logo {
+    font-size: 26px;
+  }
+
+  .art-monogram.logo {
+    font-size: 52px;
+  }
+
+  .theme-toggle {
+    width: 38px;
+    height: 38px;
+  }
+}
+
+@media (max-width: 480px) {
+  nav {
+    gap: 12px;
+  }
+
+  .logo {
+    font-size: 24px;
+  }
+
+  .art-monogram.logo {
+    font-size: 44px;
+    letter-spacing: -0.06em;
+  }
+}
+
+/* Em telas muito estreitas o nome sai e o logo fica sozinho. */
+@media (max-width: 400px) {
+  .site-header .brand-name {
+    display: none;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* 3. Modo noturno — Tokyo Night                                       */
+/* ------------------------------------------------------------------ */
+
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  /* Paleta base */
+  --tn-bg-deep: #16161e;
+  --tn-bg: #1a1b26;
+  --tn-surface: #24283b;
+  --tn-border: #414868;
+  --tn-text: #c0caf5;
+  --tn-text-soft: #9aa5ce;
+  --tn-comment: #8089b3;
+  --tn-blue: #7aa2f7;
+  --tn-cyan: #7dcfff;
+  --tn-gold: #e0af68;
+  --tn-green: #9ece6a;
+  --tn-purple: #bb9af7;
+
+  /* As variáveis do design original, remapeadas */
+  --paper: var(--tn-bg);
+  --white: var(--tn-bg-deep);
+  --ink: var(--tn-text);
+  --muted: var(--tn-text-soft);
+  --blue: var(--tn-blue);
+  --line: #2f334d;
+  --soft: var(--tn-surface);
+
+  /* Logo na versão principal, de fundo escuro */
+  --logo-ink: var(--tn-text);
+  --logo-ship: var(--tn-blue);
+  --logo-star: var(--tn-gold);
+}
+
+[data-theme="dark"] ::selection {
+  background: #33467c;
+  color: var(--tn-text);
+}
+
+/* Cabeçalho, navegação e botões */
+
+[data-theme="dark"] .site-header {
+  background: rgba(26, 27, 38, 0.97);
+}
+
+[data-theme="dark"] nav .nav-contact,
+[data-theme="dark"] .theme-toggle,
+[data-theme="dark"] .contact-email > button {
+  border-color: var(--tn-border);
+}
+
+[data-theme="dark"] .skip-link,
+[data-theme="dark"] .primary {
+  color: var(--tn-bg-deep);
+}
+
+[data-theme="dark"] .primary:hover {
+  background: var(--tn-cyan);
+}
+
+[data-theme="dark"] .text-link {
+  border-bottom-color: var(--tn-border);
+}
+
+/* O ponto dos títulos vira a estrela dourada do logo. */
+[data-theme="dark"] h2 > span {
+  color: var(--tn-gold);
+}
+
+/* Ilustração do hero */
+
+[data-theme="dark"] .hero-art {
+  background: var(--tn-bg-deep);
+  color: var(--tn-text);
+  border: 1px solid var(--tn-border);
+  box-shadow: none;
+}
+
+[data-theme="dark"] .art-grid {
+  background-image:
+    linear-gradient(#c0caf50a 1px, transparent 1px),
+    linear-gradient(90deg, #c0caf50a 1px, transparent 1px);
+}
+
+[data-theme="dark"] .art-top,
+[data-theme="dark"] .art-bottom > span:first-child {
+  color: var(--tn-text-soft);
+}
+
+[data-theme="dark"] .art-orbit {
+  border-color: #41486899;
+}
+
+[data-theme="dark"] .art-orbit:after {
+  border-color: #41486866;
+}
+
+[data-theme="dark"] .layer {
+  border-color: var(--tn-border);
+  box-shadow: 0 25px 30px -25px #000;
+}
+
+[data-theme="dark"] .layer-back {
+  background: var(--tn-surface);
+}
+
+[data-theme="dark"] .layer-front {
+  background: var(--tn-text);
+  color: var(--tn-bg);
+}
+
+[data-theme="dark"] .layer-front .layer-icon {
+  background: #a9b1d6;
+}
+
+[data-theme="dark"] .layer i {
+  background: var(--tn-blue);
+}
+
+[data-theme="dark"] .layer-front i {
+  background: #2959aa;
+}
+
+[data-theme="dark"] .connection span {
+  background: var(--tn-text);
+}
+
+[data-theme="dark"] .art-monogram.logo {
+  color: var(--tn-text);
+}
+
+[data-theme="dark"] .art-monogram .logo-ship {
+  color: var(--tn-blue);
+}
+
+/* Faixa de ferramentas e filtros */
+
+[data-theme="dark"] .stack-strip i {
+  color: #565f89;
+}
+
+[data-theme="dark"] .project-filters button[aria-pressed="true"] {
+  background: var(--tn-blue);
+  color: var(--tn-bg-deep);
+}
+
+/* Cards de projeto */
+
+[data-theme="dark"] .project-card {
+  background: var(--tn-bg-deep);
+}
+
+[data-theme="dark"] .project-meta > span:last-child {
+  color: var(--tn-blue);
+}
+
+[data-theme="dark"] .tags li {
+  background: var(--tn-surface);
+  color: #a9b1d6;
+}
+
+/* Ilustrações dos cards: mesmo fundo, um acento da paleta para cada. */
+
+[data-theme="dark"] .emprega-visual,
+[data-theme="dark"] .library-visual,
+[data-theme="dark"] .cypress-visual,
+[data-theme="dark"] .rick-visual {
+  background: var(--tn-surface);
+}
+
+/* Emprega.Co: azul */
+[data-theme="dark"] .visual-topline,
+[data-theme="dark"] .emprega-wordmark > span {
+  color: var(--tn-blue);
+}
+
+[data-theme="dark"] .emprega-wordmark {
+  color: var(--tn-text);
+}
+
+[data-theme="dark"] .emprega-symbol {
+  border-color: var(--tn-blue);
+  color: var(--tn-blue);
+}
+
+[data-theme="dark"] .emprega-bottom {
+  color: var(--tn-text-soft);
+}
+
+[data-theme="dark"] .mini-stack > span {
+  border-color: var(--tn-border);
+}
+
+/* API de biblioteca: dourado */
+[data-theme="dark"] .library-visual {
+  color: var(--tn-gold);
+}
+
+[data-theme="dark"] .entity-diagram > div {
+  background: var(--tn-bg);
+  border-color: var(--tn-border);
+  color: var(--tn-text);
+}
+
+[data-theme="dark"] .entity-diagram span {
+  color: var(--tn-comment);
+}
+
+[data-theme="dark"] .entity-diagram i {
+  border-color: #565f89;
+}
+
+/* Cypress: verde */
+[data-theme="dark"] .cypress-visual {
+  color: var(--tn-green);
+}
+
+[data-theme="dark"] .test-row {
+  color: var(--tn-text);
+}
+
+[data-theme="dark"] .test-row b {
+  border-color: var(--tn-green);
+  background: transparent;
+  color: var(--tn-green);
+}
+
+[data-theme="dark"] .cypress-visual > small {
+  color: var(--tn-comment);
+}
+
+/* Rick and Morty: roxo */
+[data-theme="dark"] .rick-visual {
+  color: var(--tn-purple);
+}
+
+[data-theme="dark"] .portal {
+  border-color: var(--tn-purple);
+  box-shadow:
+    0 0 0 10px var(--tn-surface),
+    0 0 0 11px #565f89,
+    0 0 0 23px var(--tn-surface),
+    0 0 0 24px var(--tn-border);
+}
+
+[data-theme="dark"] .portal span {
+  color: var(--tn-purple);
+}
+
+/* Sobre */
+
+[data-theme="dark"] .about-section {
+  background: var(--tn-bg-deep);
+}
+
+[data-theme="dark"] .education,
+[data-theme="dark"] .skills-grid {
+  border-top-color: var(--line);
+}
+
+[data-theme="dark"] .education-icon {
+  background: var(--tn-surface);
+}
+
+/* Modal */
+
+[data-theme="dark"] dialog {
+  border-color: var(--tn-border);
+  box-shadow: 0 25px 100px #000a;
+}
+
+[data-theme="dark"] dialog::backdrop {
+  background: #16161ecc;
+}
+
+[data-theme="dark"] dialog .dialog-note {
+  border-left-color: var(--tn-blue);
+  background: var(--tn-surface);
+}
