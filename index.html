@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>André Dias — desenvolvimento backend, web e mobile</title>
+  <meta name="description" content="Portfólio de André Dias. APIs com Java e Spring Boot, interfaces com React e React Native.">
+  <meta name="theme-color" content="#1a1b26">
+  <meta name="color-scheme" content="dark">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="André Dias — desenvolvimento backend, web e mobile">
+  <meta property="og:description" content="APIs com Java e Spring Boot, interfaces com React e React Native.">
+  <meta property="og:locale" content="pt_BR">
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/projects.js" defer></script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="logo logo--sm" href="#inicio" aria-label="ad. — voltar ao início">
+        <span class="logo__ship" aria-hidden="true">&gt;</span><span class="logo__ad" aria-hidden="true">ad</span><span class="logo__star" aria-hidden="true">.</span>
+      </a>
+      <nav class="site-nav" aria-label="Seções">
+        <a href="#projetos">projetos</a>
+        <a href="#sobre">sobre</a>
+        <a href="#contato">contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+
+    <!-- Início -->
+    <section class="hero" id="inicio">
+      <div class="container hero__inner">
+        <p class="comment">// per aspera ad astra</p>
+
+        <p class="logo logo--hero" aria-hidden="true">
+          <span class="logo__ship">&gt;</span><span class="logo__ad">ad</span><span class="logo__star">.</span>
+        </p>
+
+        <div class="hero__id">
+          <h1 class="hero__name">André Dias</h1>
+          <p class="hero__role">Backend, web e mobile. Da ideia à aplicação.</p>
+        </div>
+
+        <p class="hero__lead">
+          Desenvolvo APIs com Java e Spring Boot e interfaces com React e React Native.
+          Gosto de entender como cada parte se conecta.
+        </p>
+
+        <div class="actions">
+          <a class="btn btn--primary" href="#projetos">ver projetos <span aria-hidden="true">-&gt;</span></a>
+          <a class="btn" href="https://github.com/andrezon04" target="_blank" rel="noopener">github.com/andrezon04</a>
+          <a class="btn" href="https://www.linkedin.com/in/andrediass/" target="_blank" rel="noopener">linkedin.com/in/andrediass</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Caixa de ferramentas -->
+    <section class="stack" aria-labelledby="stack-titulo">
+      <div class="container stack__inner">
+        <h2 class="comment" id="stack-titulo">// caixa de ferramentas</h2>
+        <ul class="stack__list">
+          <li>Java</li>
+          <li>Spring Boot</li>
+          <li>React</li>
+          <li>React Native</li>
+          <li>PostgreSQL</li>
+          <li>Cypress</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Projetos -->
+    <section class="section section--deep" id="projetos" aria-labelledby="projetos-titulo">
+      <div class="container">
+        <header class="section__head">
+          <p class="comment">// aprendizado em prática</p>
+          <h2 class="section__title" id="projetos-titulo">Projetos selecionados<span class="star">.</span></h2>
+          <p class="section__lead">Da modelagem de dados à interface. Uma seleção do que venho construindo.</p>
+        </header>
+
+        <div class="filters" role="group" aria-label="Filtrar projetos por área">
+          <button class="filter" type="button" data-filter="todos" aria-pressed="true">todos</button>
+          <button class="filter" type="button" data-filter="backend" aria-pressed="false">backend</button>
+          <button class="filter" type="button" data-filter="web-mobile" aria-pressed="false">web &amp; mobile</button>
+          <button class="filter" type="button" data-filter="testes" aria-pressed="false">testes</button>
+        </div>
+        <p class="filters__count" id="contagem" role="status" aria-live="polite"></p>
+
+        <ul class="projects" id="lista-projetos"></ul>
+
+        <noscript>
+          <p class="section__lead">
+            A lista de projetos é montada com JavaScript. Você pode ver todos em
+            <a href="https://github.com/andrezon04?tab=repositories">github.com/andrezon04</a>.
+          </p>
+        </noscript>
+
+        <p class="projects__more">
+          <a class="link" href="https://github.com/andrezon04?tab=repositories" target="_blank" rel="noopener">outros experimentos e projetos no GitHub <span aria-hidden="true">↗</span></a>
+        </p>
+      </div>
+    </section>
+
+    <!-- Sobre -->
+    <section class="section" id="sobre" aria-labelledby="sobre-titulo">
+      <div class="container about">
+        <div class="about__text">
+          <header class="section__head">
+            <p class="comment">// além do código</p>
+            <h2 class="section__title" id="sobre-titulo">Curiosidade para entender. Prática para construir<span class="star">.</span></h2>
+          </header>
+
+          <p>Sou André, estudante de Desenvolvimento de Sistemas e alguém que gosta de ver uma ideia ganhar forma.</p>
+          <p>Meu foco está no backend com Java e Spring Boot. Nos projetos web e mobile, trabalho com JavaScript, React e React Native, conectando interfaces, APIs e bancos de dados.</p>
+          <p>No Emprega.Co, participo do desenvolvimento em equipe de uma API e um aplicativo. Nos projetos de estudo, exploro modelagem de dados, integrações e testes automatizados.</p>
+
+          <p>
+            <a class="link" href="https://www.linkedin.com/in/andrediass/" target="_blank" rel="noopener">me encontre no LinkedIn <span aria-hidden="true">↗</span></a>
+          </p>
+        </div>
+
+        <div class="about__cards">
+          <article class="card">
+            <p class="card__label">formação</p>
+            <h3 class="card__title">Técnico em Desenvolvimento de Sistemas</h3>
+            <p class="card__text">SENAI Suíço-Brasileira</p>
+            <p class="card__text card__text--muted">Conclusão prevista: novembro de 2026</p>
+          </article>
+
+          <article class="card">
+            <p class="card__label">backend &amp; dados</p>
+            <p class="card__text">Java, Spring Boot, MySQL e PostgreSQL.</p>
+          </article>
+
+          <article class="card">
+            <p class="card__label">web &amp; mobile</p>
+            <p class="card__text">JavaScript, React, React Native e Expo.</p>
+          </article>
+
+          <article class="card">
+            <p class="card__label">do desenvolvimento aos testes</p>
+            <p class="card__text">Git, Docker, Postman, Figma e estudos com Cypress.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contato -->
+    <section class="section section--deep" id="contato" aria-labelledby="contato-titulo">
+      <div class="container contact">
+        <header class="section__head">
+          <p class="comment">// o próximo passo começa com uma conversa</p>
+          <h2 class="section__title" id="contato-titulo">Vamos construir algo juntos<span class="star">?</span></h2>
+          <p class="section__lead">Para conversar sobre projetos, tecnologia ou oportunidades, é só me chamar.</p>
+        </header>
+
+        <div class="actions">
+          <a class="btn btn--primary" href="mailto:andredias.jobs@gmail.com">andredias.jobs@gmail.com</a>
+          <a class="btn" href="https://www.linkedin.com/in/andrediass/" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a>
+          <a class="btn" href="https://github.com/andrezon04" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <span class="logo logo--xs" aria-hidden="true">
+        <span class="logo__ship">&gt;</span><span class="logo__ad">ad</span><span class="logo__star">.</span>
+      </span>
+      <span class="site-footer__rule" aria-hidden="true"></span>
+      <span>per aspera ad astra</span>
+      <span class="site-footer__links">
+        <a href="https://github.com/andrezon04/andre-dias-portfolio" target="_blank" rel="noopener">ver código no GitHub</a>
+        <a href="#inicio">voltar ao início <span aria-hidden="true">↑</span></a>
+      </span>
+    </div>
+  </footer>
+
+  <!-- Detalhes do projeto: preenchido por js/main.js -->
+  <dialog class="modal" id="modal-projeto" aria-labelledby="modal-titulo">
+    <form method="dialog" class="modal__close-form">
+      <button class="modal__close" type="submit" aria-label="Fechar detalhes do projeto">×</button>
+    </form>
+    <p class="card__label" id="modal-tipo"></p>
+    <h3 class="modal__title" id="modal-titulo"></h3>
+    <p class="modal__summary" id="modal-resumo"></p>
+    <h4 class="comment">// o que faz parte do projeto</h4>
+    <ul class="modal__list" id="modal-itens"></ul>
+    <p class="modal__note" id="modal-nota"></p>
+    <a class="btn btn--primary" id="modal-link" href="#" target="_blank" rel="noopener"></a>
+  </dialog>
+</body>
+</html>

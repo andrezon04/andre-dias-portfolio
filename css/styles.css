@@ -1,0 +1,684 @@
+/**
+ * >ad. — per aspera ad astra
+ * github.com/andrezon04
+ *
+ * Estilos do portfólio. A identidade visual "ad." define tudo aqui:
+ * paleta Tokyo Night, Space Mono e o logo ">ad." com o ponto dourado.
+ */
+
+/* ------------------------------------------------------------------ */
+/* 1. Tokens da identidade                                             */
+/* ------------------------------------------------------------------ */
+
+:root {
+  /* Fundos, do mais escuro ao mais claro */
+  --bg-deep: #16161e;
+  --bg: #1a1b26;
+  --surface: #24283b;
+  --border: #414868;
+
+  /* Texto */
+  --text: #c0caf5;
+  --text-soft: #9aa5ce;
+  --muted: #8089b3; /* comentários "//" e legendas */
+
+  /* Acentos: cada um tem um papel fixo no logo */
+  --ship: #7aa2f7;       /* ">" a nave, também links e ações */
+  --ship-hover: #7dcfff;
+  --star: #e0af68;       /* "." a estrela: usar com parcimônia */
+
+  --font: "Space Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+
+  --radius: 12px;
+  --radius-sm: 8px;
+  --container: 1200px;
+  --gutter: 24px;
+}
+
+/* ------------------------------------------------------------------ */
+/* 2. Base                                                             */
+/* ------------------------------------------------------------------ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-padding-top: 88px; /* âncoras não ficam escondidas sob o cabeçalho fixo */
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+ul {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: var(--ship);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--ship-hover);
+}
+
+:focus-visible {
+  outline: 2px solid var(--star);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.skip-link {
+  position: absolute;
+  left: var(--gutter);
+  top: -100px;
+  z-index: 20;
+  padding: 10px 16px;
+  background: var(--ship);
+  color: var(--bg-deep);
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+}
+
+.skip-link:focus {
+  top: 12px;
+  color: var(--bg-deep);
+}
+
+/* ------------------------------------------------------------------ */
+/* 3. Logo                                                             */
+/* ------------------------------------------------------------------ */
+
+/* Medidas vindas do quadro "Marca final": peso 700, tracking -0.06em
+   e um vão de 0.1em entre a nave e as letras. */
+.logo {
+  display: inline-block;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.06em;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.logo:hover {
+  color: var(--text);
+}
+
+.logo__ship {
+  color: var(--ship);
+}
+
+.logo__ad {
+  margin-left: 0.1em;
+}
+
+.logo__star {
+  color: var(--star);
+}
+
+.logo--xs {
+  font-size: 18px;
+}
+
+.logo--sm {
+  font-size: 26px; /* acima do mínimo de 24px definido na marca */
+}
+
+.logo--hero {
+  font-size: clamp(88px, 16vw, 200px);
+}
+
+/* O ponto dourado reaparece no fim dos títulos de seção. */
+.star {
+  color: var(--star);
+}
+
+.comment {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+/* ------------------------------------------------------------------ */
+/* 4. Cabeçalho e rodapé                                               */
+/* ------------------------------------------------------------------ */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--bg);
+  border-bottom: 1px solid var(--surface);
+}
+
+.site-header__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 16px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  font-size: 15px;
+}
+
+.site-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px; /* área de toque */
+  padding: 0 6px;
+}
+
+.site-footer {
+  border-top: 1px solid var(--surface);
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.site-footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 16px;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.site-footer__rule {
+  width: 1px;
+  height: 22px;
+  background: var(--border);
+}
+
+.site-footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 20px;
+  margin-left: auto;
+}
+
+.site-footer__links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+
+/* ------------------------------------------------------------------ */
+/* 5. Botões e links                                                   */
+/* ------------------------------------------------------------------ */
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 10px 18px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--ship);
+  font: inherit;
+  font-size: 15px;
+  cursor: pointer;
+  overflow-wrap: anywhere;
+  transition: border-color 0.15s, color 0.15s, background-color 0.15s;
+}
+
+.btn:hover {
+  border-color: var(--ship);
+  color: var(--ship-hover);
+}
+
+.btn--primary {
+  background: var(--ship);
+  border-color: var(--ship);
+  color: var(--bg-deep);
+  font-weight: 700;
+}
+
+.btn--primary:hover {
+  background: var(--ship-hover);
+  border-color: var(--ship-hover);
+  color: var(--bg-deep);
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  border-bottom: 1px solid var(--border);
+}
+
+.link:hover {
+  border-bottom-color: var(--ship-hover);
+}
+
+/* ------------------------------------------------------------------ */
+/* 6. Hero                                                             */
+/* ------------------------------------------------------------------ */
+
+.hero__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  padding-top: clamp(56px, 10vw, 112px);
+  padding-bottom: clamp(56px, 10vw, 112px);
+}
+
+.hero__id {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.hero__name {
+  font-size: 28px;
+  line-height: 1.2;
+}
+
+.hero__role {
+  font-size: 17px;
+  color: var(--text-soft);
+}
+
+.hero__lead {
+  max-width: 60ch;
+  color: var(--text-soft);
+}
+
+/* ------------------------------------------------------------------ */
+/* 7. Caixa de ferramentas                                             */
+/* ------------------------------------------------------------------ */
+
+.stack {
+  border-top: 1px solid var(--surface);
+}
+
+.stack__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 12px 32px;
+  padding-top: 28px;
+  padding-bottom: 28px;
+}
+
+.stack__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 0;
+  font-weight: 700;
+}
+
+/* O "+" vem depois do item, para nunca abrir uma linha quebrada. */
+.stack__list li:not(:last-child)::after {
+  content: "+";
+  margin: 0 16px;
+  color: var(--border);
+  font-weight: 400;
+}
+
+/* ------------------------------------------------------------------ */
+/* 8. Seções                                                           */
+/* ------------------------------------------------------------------ */
+
+.section {
+  padding: clamp(64px, 9vw, 112px) 0;
+  border-top: 1px solid var(--surface);
+}
+
+.section--deep {
+  background: var(--bg-deep);
+}
+
+.section__head {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.section__title {
+  max-width: 22ch;
+  font-size: clamp(28px, 4.5vw, 44px);
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+.section__lead {
+  max-width: 60ch;
+  color: var(--text-soft);
+}
+
+/* ------------------------------------------------------------------ */
+/* 9. Projetos                                                         */
+/* ------------------------------------------------------------------ */
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.filter {
+  min-height: 44px;
+  padding: 8px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-soft);
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s, background-color 0.15s;
+}
+
+.filter:hover {
+  border-color: var(--ship);
+  color: var(--text);
+}
+
+.filter[aria-pressed="true"] {
+  background: var(--surface);
+  border-color: var(--ship);
+  color: var(--text);
+  font-weight: 700;
+}
+
+.filters__count {
+  min-height: 1.7em;
+  margin: 12px 0 20px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+  gap: 16px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 24px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.card__label {
+  font-size: 12px;
+  color: var(--text-soft);
+}
+
+.card__title {
+  font-size: 20px;
+  line-height: 1.3;
+}
+
+.card__text {
+  font-size: 15px;
+  color: var(--text-soft);
+}
+
+.card__text--muted {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.project {
+  gap: 14px;
+}
+
+/* O projeto em destaque ocupa duas colunas quando há espaço. */
+@media (min-width: 720px) {
+  .project--featured {
+    grid-column: span 2;
+  }
+}
+
+.project__meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 12px;
+  font-size: 12px;
+}
+
+.project__kind {
+  color: var(--text-soft);
+}
+
+.project__area {
+  color: var(--ship);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--text-soft);
+}
+
+.tags li {
+  padding: 2px 8px;
+  border: 1px solid var(--surface);
+  border-radius: 6px;
+  background: var(--bg-deep);
+}
+
+.project .btn {
+  align-self: flex-start;
+  margin-top: auto; /* alinha os botões na base de cards com alturas diferentes */
+}
+
+.projects__more {
+  margin-top: 32px;
+}
+
+/* ------------------------------------------------------------------ */
+/* 10. Sobre e contato                                                 */
+/* ------------------------------------------------------------------ */
+
+.about {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
+  gap: 48px;
+  align-items: start;
+}
+
+.about__text {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.about__text .section__head {
+  margin-bottom: 8px;
+}
+
+.about__text > p {
+  max-width: 62ch;
+  color: var(--text-soft);
+}
+
+.about__cards {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.about__cards .card {
+  background: var(--bg-deep);
+  gap: 6px;
+  padding: 20px 24px;
+}
+
+.about__cards .card__title {
+  font-size: 17px;
+}
+
+.about__cards .card__text {
+  color: var(--text);
+}
+
+.about__cards .card__text--muted {
+  color: var(--muted);
+}
+
+/* ------------------------------------------------------------------ */
+/* 11. Modal de detalhes                                               */
+/* ------------------------------------------------------------------ */
+
+.modal {
+  width: min(640px, calc(100vw - 32px));
+  max-height: calc(100dvh - 32px);
+  padding: 32px;
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.modal[open] {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.modal::backdrop {
+  background: rgba(22, 22, 30, 0.82);
+}
+
+.modal__close-form {
+  align-self: flex-end;
+  margin: -12px -12px -12px 0;
+}
+
+.modal__close {
+  width: 44px;
+  height: 44px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-soft);
+  font: inherit;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.modal__close:hover {
+  border-color: var(--border);
+  color: var(--text);
+}
+
+.modal__title {
+  font-size: 26px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.modal__summary {
+  color: var(--text-soft);
+}
+
+.modal__list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 15px;
+}
+
+.modal__list li {
+  position: relative;
+  padding-left: 22px;
+}
+
+/* A nave do logo vira o marcador da lista. */
+.modal__list li::before {
+  content: ">";
+  position: absolute;
+  left: 0;
+  color: var(--ship);
+  font-weight: 700;
+}
+
+.modal__note {
+  padding-top: 14px;
+  border-top: 1px solid var(--surface);
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* ------------------------------------------------------------------ */
+/* 12. Telas pequenas e movimento                                      */
+/* ------------------------------------------------------------------ */
+
+@media (max-width: 480px) {
+  .modal {
+    padding: 24px 20px;
+  }
+
+  .site-footer__links {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
